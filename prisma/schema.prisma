@@ -1,4 +1,4 @@
-// Prisma Schema for GlowSalon SaaS
+// Prisma Schema for AgendaPro Salão
 // This is a reference schema for production deployment
 
 datasource db {

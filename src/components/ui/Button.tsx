@@ -11,11 +11,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', isLoading, children, ...props }, ref) => {
     const variants = {
-      primary: 'bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20',
-      secondary: 'bg-secondary text-white hover:bg-secondary/90 shadow-lg shadow-secondary/20',
+      primary: 'bg-primary text-white hover:bg-primary/90 shadow-[0_0_20px_rgba(124,58,237,0.3)]',
+      secondary: 'bg-secondary text-white hover:bg-secondary/90 shadow-[0_0_20px_rgba(59,130,246,0.3)]',
       outline: 'border border-white/10 bg-transparent hover:bg-white/5 text-white',
-      ghost: 'bg-transparent hover:bg-white/5 text-white',
-      neon: 'bg-primary text-white shadow-[0_0_15px_rgba(168,85,247,0.5)] hover:shadow-[0_0_25px_rgba(168,85,247,0.7)] border border-primary-glow/30',
+      ghost: 'bg-transparent hover:bg-white/5 text-white/70 hover:text-white',
+      neon: 'bg-accent text-black shadow-[0_0_20px_rgba(34,211,238,0.4)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)] font-bold',
     };
 
     const sizes = {
@@ -39,7 +39,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...(props as HTMLMotionProps<'button'>)}
       >
         {isLoading ? (
-          <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+          <div className={cn(
+            "mr-2 h-4 w-4 animate-spin rounded-full border-2 border-t-transparent",
+            (variant === 'primary' || variant === 'secondary' || variant === 'neon') ? "border-white/30 border-t-white" : "border-primary/30 border-t-primary"
+          )} />
         ) : null}
         {children}
       </motion.button>

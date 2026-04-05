@@ -14,7 +14,7 @@ async function startServer() {
 
   // API Routes
   app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', message: 'GlowSalon API is running' });
+    res.json({ status: 'ok', message: 'AgendaPro API is running' });
   });
 
   // Mercado Pago Webhook Mock
@@ -39,7 +39,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 GlowSalon SaaS running on http://localhost:${PORT}`);
+    console.log(`🚀 AgendaPro Salão running on http://localhost:${PORT}`);
   });
 }
 

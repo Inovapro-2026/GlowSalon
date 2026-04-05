@@ -3,18 +3,24 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { LandingPage } from '@/components/pages/LandingPage';
 import { LoginPage } from '@/components/pages/LoginPage';
 import { SalonDashboard } from '@/components/pages/SalonDashboard';
+import { FeaturesPage } from '@/components/pages/FeaturesPage';
+import { HowItWorksPage } from '@/components/pages/HowItWorksPage';
+import { PricingPage } from '@/components/pages/PricingPage';
 import { NeonBackground } from '@/components/layout/NeonBackground';
 import { Toaster } from 'sonner';
 
 export default function App() {
   return (
     <Router>
-      <div className="relative min-h-screen text-white font-sans selection:bg-primary/30">
+      <div className="relative min-h-screen text-white font-sans selection:bg-primary/20 bg-background overflow-x-hidden">
         <NeonBackground />
         <Toaster position="top-right" theme="dark" closeButton richColors />
         
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/recursos" element={<FeaturesPage />} />
+          <Route path="/como-funciona" element={<HowItWorksPage />} />
+          <Route path="/precos" element={<PricingPage />} />
           
           {/* Auth Routes */}
           <Route path="/login" element={<LoginPage type="client" />} />
